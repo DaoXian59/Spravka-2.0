@@ -3,11 +3,14 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout, QGridLayout, QGroupBox, QRadioButton, QPushButton, QLabel, QListWidget, QLineEdit
 
 from Spravka_5 import *
-from Spravka_spis import *
+spis = []
+with open('Spisok.txt', "r", encoding = "UTF-8") as file:
+    for line in file:
+        spis.append(line)
      
 class FouWin(QWidget):
     def __init__(self, da1):
-        ''' окно, в котором располагается приветствие '''
+        ''' окно проверки ИНН '''
         super().__init__()
         self.da1 = da1
         #устанавливает, как будет выглядеть окно (надпись, размер, место)
@@ -18,7 +21,8 @@ class FouWin(QWidget):
         self.connects()
         # старт:
         self.show()
-        print(self.da1)
+        #проверка работы
+        #print(self.da1)
 
     def initUI(self):
         ''' создаёт графические элементы '''
@@ -40,7 +44,7 @@ class FouWin(QWidget):
     def next_prov(self):
         INN_VV = self.INN.text()
         if len(INN_VV) == 10 or len(INN_VV) == 12:
-            if INN_VV in Spis:
+            if INN_VV in spis:
                 self.da1.append(True)
             else:
                 self.da1.append(False)
