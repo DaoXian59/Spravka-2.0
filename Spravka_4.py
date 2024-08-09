@@ -6,7 +6,7 @@ from Spravka_5 import *
 spis = []
 with open('Spisok.txt', "r", encoding = "UTF-8") as file:
     for line in file:
-        spis.append(line)
+        spis.append(line[:10])
      
 class FouWin(QWidget):
     def __init__(self, da1):
@@ -21,8 +21,6 @@ class FouWin(QWidget):
         self.connects()
         # старт:
         self.show()
-        #проверка работы
-        #print(self.da1)
 
     def initUI(self):
         ''' создаёт графические элементы '''
