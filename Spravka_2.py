@@ -17,7 +17,6 @@ class SecWin(QWidget):
         self.connects()
         # старт:
         self.show()
-        print(self.da1)
 
     def initUI(self):
         ''' создаёт графические элементы '''
